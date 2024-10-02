@@ -1,0 +1,24 @@
+<div>
+  <label for="nom">Entrez votre nom :</label>
+  <input id="nom" [(ngModel)]="nom" placeholder="Votre nom" />
+
+  <label for="font">Choisissez la police :</label>
+  <select id="font" [(ngModel)]="police">
+    <option *ngFor="let font of polices" [value]="font">{{ font }}</option>
+  </select>
+
+  <label for="taille">Taille de la police :</label>
+  <input id="taille" type="number" [(ngModel)]="taille" />
+
+  <label>Alignement :</label>
+  <input type="checkbox" (change)="updateAlignment('left')" /> Gauche
+  <input type="checkbox" (change)="updateAlignment('center')" /> Centre
+  <input type="checkbox" (change)="updateAlignment('right')" /> Droite
+</div>
+
+<div [style.text-align]="alignement" [style.font-size.px]="taille" [style.font-family]="police">
+  Bonjour {{ nom | uppercase }} !
+</div>
+
+
+
